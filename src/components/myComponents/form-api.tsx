@@ -1,5 +1,7 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,6 +9,7 @@ import * as z from "zod";
 import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
 import { AlertDialogDemo } from "./alertDialog";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type FormData =  {
     nomeCompleto: string;
@@ -35,14 +38,15 @@ const FormApi = () => {
             email: "",
             segmento: "",
             ajuda: "",
-        },
-    })
+        },
+    })
 
-    function onSubmit(values: FormData) {
+    function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values);
     }
 
     return (
+        <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="h-full shadow-xl rounded-lg space-y-1">
                 <div className="flex items-center justify-center pt-10">
                     <Image src={'/logoSiad.jpg'} alt="Logo Siad" height={100} width={200} />
@@ -95,7 +99,23 @@ const FormApi = () => {
                             <FormItem>
                                 <FormLabel>Segmento:</FormLabel>
                                 <FormControl>
-                                    <Input className="border border-[#A7A7A7]" {...field} />
+                                <div>
+                                    <Select>
+                                        <SelectTrigger className="w-full">
+                                        <SelectValue placeholder="Selecione um segmento" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
+                                            <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
+                                            <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
+                                            <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
+                                            <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
+                                            <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
+                                        </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                    </div>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -121,6 +141,7 @@ const FormApi = () => {
                     <Button className="bg-blue-900" type="submit">Enviar</Button>
                 </div>
             </form>
+        </Form>
     );
 };
 

@@ -1,7 +1,8 @@
-/* eslint-disable react/jsx-no-undef */
+
+'use client'
+
 import Image from 'next/image'
-import FormHome from './components/form-home-page'
-import FormApi from './components/form-api'
+import FormApi from '../../components/myComponents/form-api'
 
 export default function HomePage(){
   return(

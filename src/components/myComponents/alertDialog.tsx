@@ -9,9 +9,9 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
   import { Button } from "@/components/ui/button"
-import App from "./icon-search"
-import { SeparatorDemo } from "./separator"
 import { ButtonGhost } from "./button-close"
+import { SeparatorDemo } from "./separator";
+import { AppWindow } from "lucide-react";
   
 export function AlertDialogDemo() {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ export function AlertDialogDemo() {
     return (
       <AlertDialog open={open} onOpenChange={setOpen}>
         <AlertDialogTrigger asChild>
-          <Button variant="outline" className="bg-gray-600 text-white font-sans" onClick={() => setOpen(true)}>Receber Dados</Button>
+          <Button className="bg-gray-600 text-white font-sans" onClick={() => setOpen(true)}>Receber Dados</Button>
         </AlertDialogTrigger>
         <AlertDialogContent className="h-96">
           <AlertDialogHeader>
@@ -40,7 +40,7 @@ export function AlertDialogDemo() {
                 <label htmlFor="email">Informe o e-mail: </label>
                 <div className="flex flex-row">
                     <input type="text" className='border border-gray-400 rounded-md p-1 w-96 mr-5' /> 
-                    <App/>
+                    <AppWindow/>
                 </div>
                 <SeparatorDemo/>
                 <div>Fulana de Tal</div>
