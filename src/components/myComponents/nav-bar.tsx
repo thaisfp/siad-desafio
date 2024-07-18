@@ -3,18 +3,14 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 
 export default function NavigationBar(){
     return(
-        <div className="h-full w-64 bg-blue-800">
-            <NavigationMenu>
-                {/* <NavigationMenuList>
+        <div className="h-full w-full bg-blue-800">
+            <NavigationMenu className="p-10 text-white">
+                  <NavigationMenuList>
                     <NavigationMenuItem>
                     <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
-                    </NavigationMenuContent>
                     </NavigationMenuItem>
-                </NavigationMenuList> */}
-            </NavigationMenu>
-                    
+                </NavigationMenuList>     
+            </NavigationMenu>     
         </div>
     )
 }
