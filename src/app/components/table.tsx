@@ -220,12 +220,12 @@ export function TablePadrao() {
       </div> 
       <div>
         <Table>
-          <TableHeader className="shadow-lg">
+          <TableHeader className="shadow-lg ">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} >
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} >
+                    <TableHead key={header.id} className="w-20">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
